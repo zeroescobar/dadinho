@@ -94,6 +94,7 @@ public class Viagem extends javax.swing.JFrame {
             }
         });
 
+        jTextAreaResultado.setEditable(false);
         jTextAreaResultado.setColumns(20);
         jTextAreaResultado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jTextAreaResultado.setRows(5);
@@ -186,16 +187,18 @@ public class Viagem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcActionPerformed
+        final float PRECOGAS = 5.39f;
+        final float PRECOETA = 3.49f;
         String modelo = jTextModelo.getText();
         float distancia = Float.parseFloat(jTextDistancia.getText());
         float kmPorLitroGas = Float.parseFloat(jTextKmsGas.getText());
         float kmPorLitroEta = Float.parseFloat(jTextKmsEta.getText());
+        
         float gastoGasolina = distancia / kmPorLitroGas;
         float gastoEtanol = distancia / kmPorLitroEta;
-        float PRECOGAS = 5.39f;
-        float PRECOETA = 3.49f;
         float custoGas = gastoGasolina * PRECOGAS;
         float custoEta = gastoEtanol * PRECOETA;
+          
         jTextAreaResultado.setText(String.format("Modelo: %s\nDistancia: %s\n\nGASOLINA:\n    Kms p/ litro: %s\n     Preco: R$ %.2f\n     Custo final: R$ %.2f\n\nETANOL:\n    Kms p/ litro: %s\n    Preco: R$ %.2f\n     Custo final: R$ %.2f", modelo,distancia,kmPorLitroGas,PRECOGAS,custoGas,kmPorLitroEta,PRECOETA,custoEta));
         
     }//GEN-LAST:event_jButtonCalcActionPerformed
