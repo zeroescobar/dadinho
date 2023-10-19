@@ -4,6 +4,8 @@
  */
 package telas;
 
+import telas.classes.Produto;
+
 /**
  *
  * @author Aluno
@@ -123,7 +125,10 @@ public class Desconto extends javax.swing.JFrame {
        float productValue = Float.parseFloat(jTextProductValue.getText());
        int percentDiscount = Integer.parseInt(jComboBoxProductDiscont.getItemAt(jComboBoxProductDiscont.getSelectedIndex()).split("%")[0]);
        
-       float valorDesconto = (productValue  / 100) * percentDiscount;
+       Produto p = new Produto(productName,percentDiscount,productValue);
+        
+        
+       float valorDesconto = p.calcularDesconto();
         
        float novoValorProduto = productValue - valorDesconto;
         
